@@ -22,6 +22,7 @@ outputs/*.json
 # Local files not to be pushed
 master_plan.md
 prerequisite.md
+test_agent.py
 
 # OS and Packages
 *.egg-info/
