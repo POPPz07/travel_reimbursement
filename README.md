@@ -175,14 +175,17 @@ The agent's batch output results for the five sample claims are structured as fo
 
 ## 11. Screenshots
 
-### 1. Main Dashboard
-![Main Dashboard](screenshots/1_dashboard.png)
+### 1. Live Evaluation Dashboard (Approved State)
+![Live Evaluation Dashboard (Approved)](screenshots/1_dashboard_approved.png)
 
-### 2. Cached Engine Execution
-![Cached Engine Execution](screenshots/2_cached_mode.png)
+### 2. Live Evaluation Dashboard (Manual Escalation State)
+![Live Evaluation Dashboard (Manual Escalation)](screenshots/2_dashboard_manual_escalation.png)
 
-### 3. Financial Decision and Reason
-![Evaluation Result](screenshots/3_evaluation_result.png)
+### 3. HCL Assignment Alignment Tab
+![HCL Assignment Alignment](screenshots/3_assignment_alignment.png)
 
-### 4. Agent Audit Trail
-![Audit Trail](screenshots/4_audit_trail.png)
+### 4. System Architecture & Algorithms Tab
+![Architecture & Algorithms](screenshots/4_architecture.png)
+
+### 5. Policy Database & Mock Data Tab
+![Policy Database & Mock Data](screenshots/5_policy_database.png)
