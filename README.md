@@ -120,11 +120,11 @@ The agent's batch output results for the five sample claims are structured as fo
 
 | Claim File | Claim ID | Decision | Approved Amount | Rejected Amount | Confidence | Key Reasoning |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `claim_a_approve.json` | CLM-2024-010 | **Approved** | 18,500.0 | 0.0 | 1.0 | The claim is approved as all expenses are within the per-diem limits and have complete receipts. Total is under L3 auto-approve threshold. |
-| `claim_b_partial.json` | CLM-2024-011 | **Partially Approved** | 27,570.0 | 4,430.0 | 0.8 | Your claim has been partially approved. The meal expenses exceeded the daily limit, resulting in a partial deduction. Please ensure to follow the meal policy for future claims. |
-| `claim_c_reject.json` | CLM-2024-012 | **Rejected** | 0.0 | 15,800.0 | 1.0 | The claim has been rejected because a mandatory receipt attachment is missing for the primary hotel expense (Receipt R-020). |
-| `claim_d_manual.json` | CLM-2024-013 | **Manual Review** | 54,000.0 | 0.0 | 0.9 | The claim amounts are within per-diem limits, however, the total amount of INR 54000 exceeds the auto-approval threshold for your L2 grade and requires escalation. |
-| `claim_e_duplicate.json` | CLM-2024-014 | **Rejected** | 0.0 | 18,500.0 | 1.0 | Duplicate claim detected — this claim ID has already been processed |
+| `claim_a_approve.json` | CLM-2024-010 | **Approved** | 18500.0 | 0.0 | 1.0 | The claim is approved as all expenses are within the per-diem limits and have complete receipts. |
+| `claim_b_partial.json` | CLM-2024-011 | **Partially Approved** | 27570.0 | 4430.0 | 0.8 | Your claim has been partially approved. |
+| `claim_c_reject.json` | CLM-2024-012 | **Rejected** | 0.0 | 22000.0 | 1.0 | The claim has been rejected because mandatory receipt attachments are missing for all expenses. |
+| `claim_d_manual.json` | CLM-2024-013 | **Manual Review** | 54000.0 | 0.0 | 0.9 | The claim amounts are within per-diem limits, however, the total amount of INR 54000 exceeds the auto-approval threshold for your L2 grade and requires escalation. |
+| `claim_e_duplicate.json` | CLM-2024-009 | **Rejected** | 0.0 | 15000.0 | 1.0 | Duplicate claim detected — this claim ID has already been processed |
 
 ---
 

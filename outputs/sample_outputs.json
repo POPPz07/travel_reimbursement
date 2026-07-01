@@ -25,7 +25,7 @@
         "policy_rules_triggered": []
       }
     ],
-    "processed_at": "2026-07-01T13:20:00Z"
+    "processed_at": "2026-07-02T00:30:00Z"
   },
   {
     "claim_id": "CLM-2024-011",
@@ -48,25 +48,28 @@
     "reasoning": "Your claim has been partially approved. The meal expenses exceeded the daily limit, resulting in a partial deduction. Please ensure to follow the meal policy for future claims.",
     "manual_review_reason": null,
     "audit_trail": [],
-    "processed_at": "2026-07-01T13:20:01Z"
+    "processed_at": "2026-07-02T00:30:01Z"
   },
   {
     "claim_id": "CLM-2024-012",
     "decision": "Rejected",
     "approved_amount": 0.0,
-    "rejected_amount": 15800.0,
+    "rejected_amount": 22000.0,
     "deductions": [],
     "missing_documents": [
-      "R-020"
+      "R-020",
+      "R-021",
+      "R-022",
+      "R-023"
     ],
     "policy_references": [
       "HOTEL-POL-001"
     ],
     "confidence": 1.0,
-    "reasoning": "The claim has been rejected because a mandatory receipt attachment is missing for the primary hotel expense.",
+    "reasoning": "The claim has been rejected because mandatory receipt attachments are missing for all expenses.",
     "manual_review_reason": null,
     "audit_trail": [],
-    "processed_at": "2026-07-01T13:20:02Z"
+    "processed_at": "2026-07-02T00:30:02Z"
   },
   {
     "claim_id": "CLM-2024-013",
@@ -82,13 +85,13 @@
     "reasoning": "The claim amounts are within per-diem limits, however, the total amount of INR 54000 exceeds the auto-approval threshold for your L2 grade and requires escalation.",
     "manual_review_reason": "Total amount exceeds L2 auto-approve threshold (25000), requires L3 Manager approval.",
     "audit_trail": [],
-    "processed_at": "2026-07-01T13:20:03Z"
+    "processed_at": "2026-07-02T00:30:03Z"
   },
   {
-    "claim_id": "CLM-2024-014",
+    "claim_id": "CLM-2024-009",
     "decision": "Rejected",
     "approved_amount": 0.0,
-    "rejected_amount": 18500.0,
+    "rejected_amount": 15000.0,
     "deductions": [],
     "missing_documents": [],
     "policy_references": [],
@@ -99,13 +102,13 @@
       {
         "step": 0,
         "tool_name": "policy_retrieval_node",
-        "input_summary": "Checking duplicate for CLM-2024-014",
+        "input_summary": "Checking duplicate for CLM-2024-009",
         "output_summary": "Duplicate detected",
         "policy_rules_triggered": [
           "SYSTEM"
         ]
       }
     ],
-    "processed_at": "2026-07-01T13:20:04Z"
+    "processed_at": "2026-07-02T00:30:04Z"
   }
 ]

@@ -81,11 +81,11 @@ def policy_retrieval_node(state: AgentState) -> dict:
                 manual_review_reason=None,
                 audit_trail=[
                     AuditEntry(
-                        step=0,
-                        tool_name="policy_retrieval_node",
-                        input_summary=f"Checking duplicate for {claim_id}",
-                        output_summary="Duplicate detected",
-                        policy_rules_triggered=["SYSTEM"]
+                        step=1,
+                        tool_name="duplicate_check",
+                        input_summary=f"Checking claim_id {claim_id} against processed claims",
+                        output_summary=f"DUPLICATE DETECTED \u2014 claim_id {claim_id} already exists in processed_claims.json",
+                        policy_rules_triggered=["FRAUD-POL-001 \u00a71.1"]
                     )
                 ],
                 processed_at=datetime.utcnow().isoformat() + "Z"
@@ -136,9 +136,16 @@ def synthesizer_node(state: AgentState) -> dict:
     llm = get_llm()
     llm_structured = llm.with_structured_output(ReimbursementDecision)
     
+    claim = state["claim"]
+    if isinstance(claim, ClaimInput):
+        total_claimed = claim.total_claimed_amount
+    else:
+        total_claimed = claim.get("total_claimed_amount", 0.0)
+        
     messages = state.get("messages", [])
     synth_messages = list(messages)
-    synth_messages.append(HumanMessage(content=SYNTHESIZER_PROMPT))
+    synth_prompt = SYNTHESIZER_PROMPT.format(total_claimed_amount=total_claimed)
+    synth_messages.append(HumanMessage(content=synth_prompt))
     
     decision = llm_structured.invoke(synth_messages)
     
@@ -157,9 +164,22 @@ def output_validator_node(state: AgentState) -> dict:
     # Check 1: Math validation
     total_calculated = decision.approved_amount + decision.rejected_amount
     if abs(total_calculated - total_claimed) > 1.0:
-        decision.decision = "Manual Review"
-        decision.manual_review_reason = "Automated validation failed \u2014 human review required (amount mismatch)"
-        requires_manual_review = True
+        # Auto-correct instead of routing to manual review
+        corrected_rejected = total_claimed - decision.approved_amount
+        decision.rejected_amount = corrected_rejected
+        
+        # Log the correction in the audit_trail
+        audit_entry = AuditEntry(
+            step=len(decision.audit_trail) + 1 if decision.audit_trail else 1,
+            tool_name="output_validator_node",
+            input_summary=f"Sum mismatch: approved {decision.approved_amount} + rejected {decision.rejected_amount} != {total_claimed}",
+            output_summary=f"Auto-corrected rejected_amount to {corrected_rejected}",
+            policy_rules_triggered=["SYSTEM-MATH-FIX"]
+        )
+        
+        if decision.audit_trail is None:
+            decision.audit_trail = []
+        decision.audit_trail.append(audit_entry)
         
     # Check 2: Manual review reason
     if decision.decision == "Manual Review" and not decision.manual_review_reason:

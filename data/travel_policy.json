@@ -52,6 +52,14 @@
       },
       "conditions": "Must be business-purpose justified. Receipts required.",
       "exceptions": "None."
+    },
+    {
+      "rule_id": "FRAUD-POL-001",
+      "category": "compliance",
+      "section": "\u00a71.1",
+      "description": "Duplicate claim submission prevention",
+      "conditions": "Claims with a previously processed claim_id will be automatically rejected.",
+      "exceptions": "None."
     }
   ]
 }

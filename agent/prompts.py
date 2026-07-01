@@ -13,6 +13,7 @@ You have access to the following tools:
 
 EVALUATION WORKFLOW:
 1. First call receipt_completeness_check on all receipts to understand documentation status
+1b. Before calling per_diem_limit_check, aggregate all receipt amounts by category. Sum all meal receipts into a single total, sum all hotel receipts into a single total, etc. Then call per_diem_limit_check once per category using the category total \u2014 not per individual receipt.
 2. For each unique category in the claim, call per_diem_limit_check
 3. Call approval_threshold_check on the total amount
 4. Use policy_lookup if you need to verify specific policy rules
@@ -46,7 +47,9 @@ Calculate:
 - reasoning: 2-3 sentence plain-English explanation suitable for the employee
 - manual_review_reason: if routing to Manual Review, explain exactly why
 
-Ensure approved_amount + rejected_amount = total_claimed_amount."""
+CRITICAL: approved_amount + rejected_amount MUST equal exactly {total_claimed_amount}. 
+Do not approximate. Sum all approved line items for approved_amount. 
+Sum all deducted/rejected line items for rejected_amount."""
 
 def build_system_prompt(policy_context: List[Dict[str, Any]]) -> str:
     """
