@@ -1,0 +1,21 @@
+{
+  "claim_id": "CLM-2024-012",
+  "employee_id": "EMP-3301",
+  "employee_name": "Vikram Nair",
+  "employee_grade": "L1",
+  "department": "Operations",
+  "trip_purpose": "Site visit — Nashik",
+  "travel_start_date": "2024-11-15",
+  "travel_end_date": "2024-11-16",
+  "destination": "Nashik",
+  "destination_tier": "domestic_tier2",
+  "total_claimed_amount": 22000,
+  "currency": "INR",
+  "receipts": [
+    {"receipt_id": "R-020", "date": "2024-11-15", "vendor": "Hotel Unnamed", "category": "hotel", "amount": 8000, "currency": "INR", "attachment_present": false, "attachment_type": null},
+    {"receipt_id": "R-021", "date": "2024-11-16", "vendor": "Unknown Dhaba", "category": "meal", "amount": 2500, "currency": "INR", "attachment_present": false, "attachment_type": null},
+    {"receipt_id": "R-022", "date": "2024-11-15", "vendor": "Random Cab", "category": "transport", "amount": 3500, "currency": "INR", "attachment_present": false, "attachment_type": null},
+    {"receipt_id": "R-023", "date": "2024-11-16", "vendor": "Unknown", "category": "misc", "amount": 8000, "currency": "INR", "attachment_present": false, "attachment_type": null}
+  ],
+  "notes": ""
+}

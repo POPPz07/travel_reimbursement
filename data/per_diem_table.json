@@ -1,0 +1,30 @@
+{
+  "tiers": {
+    "domestic_tier1": {
+      "cities": ["Mumbai", "Delhi", "Bangalore", "Hyderabad", "Chennai", "Pune"],
+      "daily_limits": {
+        "hotel": 5000,
+        "meal": 800,
+        "transport": 1000,
+        "misc": 500
+      }
+    },
+    "domestic_tier2": {
+      "cities": ["Nashik", "Nagpur", "Jaipur", "Lucknow", "Bhopal", "Indore"],
+      "daily_limits": {
+        "hotel": 3500,
+        "meal": 600,
+        "transport": 750,
+        "misc": 333
+      }
+    },
+    "international": {
+      "daily_limits_usd": {
+        "hotel": 150,
+        "meal": 50,
+        "transport": 40,
+        "misc": 25
+      }
+    }
+  }
+}

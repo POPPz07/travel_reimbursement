@@ -1,0 +1,57 @@
+{
+  "version": "2024-Q4",
+  "rules": [
+    {
+      "rule_id": "HOTEL-POL-001",
+      "category": "hotel",
+      "section": "§2.1",
+      "description": "Hotel accommodation limit per night",
+      "tiers": {
+        "domestic_tier1": {"limit_per_night": 5000, "currency": "INR"},
+        "domestic_tier2": {"limit_per_night": 3500, "currency": "INR"},
+        "international": {"limit_per_night": 150, "currency": "USD"}
+      },
+      "conditions": "Receipts mandatory. Pre-approval required above 1.5x limit.",
+      "exceptions": "Executive grade L5 may exceed by 20% with manager approval."
+    },
+    {
+      "rule_id": "MEAL-POL-001",
+      "category": "meal",
+      "section": "§3.2",
+      "description": "Daily meal allowance",
+      "tiers": {
+        "domestic_tier1": {"daily_limit": 800, "currency": "INR"},
+        "domestic_tier2": {"daily_limit": 600, "currency": "INR"},
+        "international": {"daily_limit": 50, "currency": "USD"}
+      },
+      "conditions": "Receipts required above INR 200 per transaction. Alcohol not reimbursable.",
+      "exceptions": "Client entertainment meals follow ENTERTAIN-POL-001 instead."
+    },
+    {
+      "rule_id": "TRANSPORT-POL-001",
+      "category": "transport",
+      "section": "§4.1",
+      "description": "Local transport (taxi/cab) per day",
+      "tiers": {
+        "domestic_tier1": {"daily_limit": 1000, "currency": "INR"},
+        "domestic_tier2": {"daily_limit": 750, "currency": "INR"},
+        "international": {"daily_limit": 40, "currency": "USD"}
+      },
+      "conditions": "Receipts mandatory for amounts above INR 300.",
+      "exceptions": "Airport transfers exempt from daily limit."
+    },
+    {
+      "rule_id": "MISC-POL-001",
+      "category": "misc",
+      "section": "§5.1",
+      "description": "Miscellaneous expenses per trip",
+      "tiers": {
+        "domestic_tier1": {"trip_limit": 1500, "currency": "INR"},
+        "domestic_tier2": {"trip_limit": 1000, "currency": "INR"},
+        "international": {"trip_limit": 75, "currency": "USD"}
+      },
+      "conditions": "Must be business-purpose justified. Receipts required.",
+      "exceptions": "None."
+    }
+  ]
+}

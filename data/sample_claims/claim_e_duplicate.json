@@ -1,0 +1,21 @@
+{
+  "claim_id": "CLM-2024-009",
+  "employee_id": "EMP-0887",
+  "employee_name": "Suresh Kumar",
+  "employee_grade": "L3",
+  "department": "Finance",
+  "trip_purpose": "Finance team offsite — Pune",
+  "travel_start_date": "2024-10-28",
+  "travel_end_date": "2024-10-30",
+  "destination": "Pune",
+  "destination_tier": "domestic_tier1",
+  "total_claimed_amount": 15000,
+  "currency": "INR",
+  "receipts": [
+    {"receipt_id": "R-040", "date": "2024-10-28", "vendor": "Marriott Pune", "category": "hotel", "amount": 4800, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"},
+    {"receipt_id": "R-041", "date": "2024-10-29", "vendor": "Marriott Pune", "category": "hotel", "amount": 4800, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"},
+    {"receipt_id": "R-042", "date": "2024-10-29", "vendor": "Pune Restaurant", "category": "meal", "amount": 750, "currency": "INR", "attachment_present": true, "attachment_type": "image"},
+    {"receipt_id": "R-043", "date": "2024-10-30", "vendor": "Ola Cab", "category": "transport", "amount": 650, "currency": "INR", "attachment_present": true, "attachment_type": "image"}
+  ],
+  "notes": "Re-submitting as previous was said to be lost."
+}

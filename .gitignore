@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+travelvenv/
+
+# IDE files
+.vscode/
+.idea/
+
+# outputs
+outputs/*.json
+!outputs/sample_outputs.json

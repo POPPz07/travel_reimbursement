@@ -1,0 +1,24 @@
+{
+  "claim_id": "CLM-2024-010",
+  "employee_id": "EMP-1042",
+  "employee_name": "Ananya Sharma",
+  "employee_grade": "L3",
+  "department": "Sales",
+  "trip_purpose": "Client meeting — Bangalore",
+  "travel_start_date": "2024-11-04",
+  "travel_end_date": "2024-11-06",
+  "destination": "Bangalore",
+  "destination_tier": "domestic_tier1",
+  "total_claimed_amount": 18500,
+  "currency": "INR",
+  "receipts": [
+    {"receipt_id": "R-001", "date": "2024-11-04", "vendor": "Hotel Leela", "category": "hotel", "amount": 4800, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"},
+    {"receipt_id": "R-002", "date": "2024-11-05", "vendor": "Hotel Leela", "category": "hotel", "amount": 4800, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"},
+    {"receipt_id": "R-003", "date": "2024-11-04", "vendor": "Cafe Coffee Day", "category": "meal", "amount": 750, "currency": "INR", "attachment_present": true, "attachment_type": "image"},
+    {"receipt_id": "R-004", "date": "2024-11-05", "vendor": "Mainland China", "category": "meal", "amount": 780, "currency": "INR", "attachment_present": true, "attachment_type": "image"},
+    {"receipt_id": "R-005", "date": "2024-11-06", "vendor": "Ola Cab", "category": "transport", "amount": 850, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"},
+    {"receipt_id": "R-006", "date": "2024-11-05", "vendor": "Uber", "category": "transport", "amount": 920, "currency": "INR", "attachment_present": true, "attachment_type": "image"},
+    {"receipt_id": "R-007", "date": "2024-11-06", "vendor": "Airport Duty Free", "category": "misc", "amount": 600, "currency": "INR", "attachment_present": true, "attachment_type": "image"}
+  ],
+  "notes": "All receipts attached. Standard client visit."
+}

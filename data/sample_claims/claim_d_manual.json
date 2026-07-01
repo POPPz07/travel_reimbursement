@@ -1,0 +1,26 @@
+{
+  "claim_id": "CLM-2024-013",
+  "employee_id": "EMP-1155",
+  "employee_name": "Priya Menon",
+  "employee_grade": "L2",
+  "department": "Business Development",
+  "trip_purpose": "International client conference — Singapore",
+  "travel_start_date": "2024-11-18",
+  "travel_end_date": "2024-11-22",
+  "destination": "Singapore",
+  "destination_tier": "international",
+  "total_claimed_amount": 68000,
+  "currency": "INR",
+  "receipts": [
+    {"receipt_id": "R-030", "date": "2024-11-18", "vendor": "Marina Bay Sands", "category": "hotel", "amount": 12000, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"},
+    {"receipt_id": "R-031", "date": "2024-11-19", "vendor": "Marina Bay Sands", "category": "hotel", "amount": 12000, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"},
+    {"receipt_id": "R-032", "date": "2024-11-20", "vendor": "Marina Bay Sands", "category": "hotel", "amount": 12000, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"},
+    {"receipt_id": "R-033", "date": "2024-11-21", "vendor": "Marina Bay Sands", "category": "hotel", "amount": 12000, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"},
+    {"receipt_id": "R-034", "date": "2024-11-19", "vendor": "Hawker Centre", "category": "meal", "amount": 3500, "currency": "INR", "attachment_present": true, "attachment_type": "image"},
+    {"receipt_id": "R-035", "date": "2024-11-20", "vendor": "Lau Pa Sat", "category": "meal", "amount": 3200, "currency": "INR", "attachment_present": true, "attachment_type": "image"},
+    {"receipt_id": "R-036", "date": "2024-11-21", "vendor": "Grab Transport", "category": "transport", "amount": 4200, "currency": "INR", "attachment_present": true, "attachment_type": "image"},
+    {"receipt_id": "R-037", "date": "2024-11-22", "vendor": "Airport Transfer", "category": "transport", "amount": 3100, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"},
+    {"receipt_id": "R-038", "date": "2024-11-20", "vendor": "Conference Registration", "category": "misc", "amount": 6000, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"}
+  ],
+  "notes": "International conference trip. All receipts attached."
+}

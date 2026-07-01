@@ -1,0 +1,11 @@
+{
+  "version": "2024-Q4",
+  "policy_rule": "APPR-POL-002",
+  "matrix": [
+    {"grade": "L1", "auto_approve_limit": 10000, "manager_limit": 25000, "director_limit": 50000, "above_director": "manual_review"},
+    {"grade": "L2", "auto_approve_limit": 25000, "manager_limit": 50000, "director_limit": 100000, "above_director": "manual_review"},
+    {"grade": "L3", "auto_approve_limit": 40000, "manager_limit": 75000, "director_limit": 150000, "above_director": "manual_review"},
+    {"grade": "L4", "auto_approve_limit": 60000, "manager_limit": 120000, "director_limit": 250000, "above_director": "manual_review"},
+    {"grade": "L5", "auto_approve_limit": 100000, "manager_limit": 200000, "director_limit": 500000, "above_director": "manual_review"}
+  ]
+}

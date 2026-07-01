@@ -1,0 +1,26 @@
+{
+  "claim_id": "CLM-2024-011",
+  "employee_id": "EMP-2201",
+  "employee_name": "Rahul Desai",
+  "employee_grade": "L2",
+  "department": "Engineering",
+  "trip_purpose": "Training — Mumbai",
+  "travel_start_date": "2024-11-10",
+  "travel_end_date": "2024-11-13",
+  "destination": "Mumbai",
+  "destination_tier": "domestic_tier1",
+  "total_claimed_amount": 32000,
+  "currency": "INR",
+  "receipts": [
+    {"receipt_id": "R-010", "date": "2024-11-10", "vendor": "Taj Hotels", "category": "hotel", "amount": 4900, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"},
+    {"receipt_id": "R-011", "date": "2024-11-11", "vendor": "Taj Hotels", "category": "hotel", "amount": 4900, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"},
+    {"receipt_id": "R-012", "date": "2024-11-12", "vendor": "Taj Hotels", "category": "hotel", "amount": 4900, "currency": "INR", "attachment_present": true, "attachment_type": "pdf"},
+    {"receipt_id": "R-013", "date": "2024-11-10", "vendor": "The Table Restaurant", "category": "meal", "amount": 1800, "currency": "INR", "attachment_present": true, "attachment_type": "image"},
+    {"receipt_id": "R-014", "date": "2024-11-11", "vendor": "Zomato Order", "category": "meal", "amount": 1400, "currency": "INR", "attachment_present": true, "attachment_type": "image"},
+    {"receipt_id": "R-015", "date": "2024-11-12", "vendor": "Social Restaurant", "category": "meal", "amount": 1600, "currency": "INR", "attachment_present": true, "attachment_type": "image"},
+    {"receipt_id": "R-016", "date": "2024-11-13", "vendor": "Uber", "category": "transport", "amount": 980, "currency": "INR", "attachment_present": true, "attachment_type": "image"},
+    {"receipt_id": "R-017", "date": "2024-11-11", "vendor": "Rapido", "category": "transport", "amount": 850, "currency": "INR", "attachment_present": true, "attachment_type": "image"},
+    {"receipt_id": "R-018", "date": "2024-11-13", "vendor": "Stationery", "category": "misc", "amount": 670, "currency": "INR", "attachment_present": true, "attachment_type": "image"}
+  ],
+  "notes": "Meals were slightly over due to team dinner on first night."
+}
