@@ -5,7 +5,7 @@ The Travel Reimbursement Approval Agent is an autonomous, policy-grounded workfl
 
 ### \ud83c\udf1f Standout Features (Optional Enhancements Fulfilled)
 - **Interactive Streamlit UI**: Run `streamlit run app.py` for a polished, highly-visual dashboard to test claims interactively during demos.
-- **Automated Validation Testing**: Run `pytest test_agent.py` to cryptographically prove that the final deterministic outputs perfectly adhere to all financial math rules (e.g., ensuring Manual Reviews yield `0.0` amounts, and approvals + rejections sum exactly to the `total_claimed_amount`).
+- **Enterprise Multi-Provider Fallback**: Built-in redundancy that seamlessly switches between Groq, Gemini, and OpenAI if rate-limits are hit, rebuilding the state graph from scratch to prevent context corruption.
 - **Audit Trails**: The agent automatically emits a chronologically sequenced log of all tool executions, contextual inputs, and deterministic math auto-corrections.
 
 ---
@@ -76,11 +76,12 @@ Policies are stored locally in a structured JSON database (`data/travel_policy.j
    pip install -r requirements.txt
    ```
 3. **Configure Environment Variables:**
-   Create a `.env` file in the root folder using `.env.example` as a template:
+   Create a `.env` file in the root folder using `.env.example` as a template. The system features a robust **Multi-Provider Fallback**; if the primary `LLM_PROVIDER` hits a rate limit, it will automatically fail-over to the next available API key provided.
    ```env
-   OPENAI_API_KEY=
-   GROQ_API_KEY=your_groq_api_key_here
    LLM_PROVIDER=groq
+   GROQ_API_KEY=your_groq_api_key_here
+   GEMINI_API_KEY=your_gemini_api_key_here
+   OPENAI_API_KEY=your_openai_api_key_here
    ```
 
 ---
@@ -108,11 +109,6 @@ streamlit run app.py
 ```
 *(This allows you to select claims from a dropdown, view the input JSON, and run the evaluation live or load cached deterministic results to bypass LLM rate limits).*
 
-### Automated Verification Tests \ud83c\udf1f
-To cryptographically verify the strict mathematical guardrails of the agent:
-```bash
-pytest test_agent.py
-```
 
 ### API Server
 - **Boot the API server:**
