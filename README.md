@@ -183,5 +183,8 @@ The agent's batch output results for the five sample claims are structured as fo
 ### 4. System Architecture & Algorithms Tab
 ![Architecture & Algorithms](screenshots/4_architecture.png)
 
-### 5. Policy Database & Mock Data Tab
-![Policy Database & Mock Data](screenshots/5_policy_database.png)
+### 5. Policy Database & Mock Data Tab (Top)
+![Policy Database & Mock Data Top](screenshots/5_policy_database_top.png)
+
+### 6. Policy Database & Mock Data Tab (Bottom)
+![Policy Database & Mock Data Bottom](screenshots/6_policy_database_bottom.png)
