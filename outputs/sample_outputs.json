@@ -1,1 +1,111 @@
-{}
+[
+  {
+    "claim_id": "CLM-2024-010",
+    "decision": "Approved",
+    "approved_amount": 18500.0,
+    "rejected_amount": 0.0,
+    "deductions": [],
+    "missing_documents": [],
+    "policy_references": [
+      "HOTEL-POL-001",
+      "MEAL-POL-001",
+      "TRANSPORT-POL-001",
+      "MISC-POL-001",
+      "APPR-POL-002"
+    ],
+    "confidence": 1.0,
+    "reasoning": "The claim is approved as all expenses are within the per-diem limits and have complete receipts. The total approved amount is INR 18,500.",
+    "manual_review_reason": null,
+    "audit_trail": [
+      {
+        "step": 1,
+        "tool_name": "receipt_completeness_check",
+        "input_summary": "receipts_json payload of length 1298",
+        "output_summary": "7 complete, 0 incomplete",
+        "policy_rules_triggered": []
+      }
+    ],
+    "processed_at": "2026-07-01T13:20:00Z"
+  },
+  {
+    "claim_id": "CLM-2024-011",
+    "decision": "Partially Approved",
+    "approved_amount": 27570.0,
+    "rejected_amount": 4430.0,
+    "deductions": [
+      {
+        "receipt_id": "R-013",
+        "amount": 2330.0,
+        "reason": "Exceeded daily meal limit for L4 employee in domestic_tier1"
+      }
+    ],
+    "missing_documents": [],
+    "policy_references": [
+      "MEAL-POL-001",
+      "APPR-POL-002"
+    ],
+    "confidence": 0.8,
+    "reasoning": "Your claim has been partially approved. The meal expenses exceeded the daily limit, resulting in a partial deduction. Please ensure to follow the meal policy for future claims.",
+    "manual_review_reason": null,
+    "audit_trail": [],
+    "processed_at": "2026-07-01T13:20:01Z"
+  },
+  {
+    "claim_id": "CLM-2024-012",
+    "decision": "Rejected",
+    "approved_amount": 0.0,
+    "rejected_amount": 15800.0,
+    "deductions": [],
+    "missing_documents": [
+      "R-020"
+    ],
+    "policy_references": [
+      "HOTEL-POL-001"
+    ],
+    "confidence": 1.0,
+    "reasoning": "The claim has been rejected because a mandatory receipt attachment is missing for the primary hotel expense.",
+    "manual_review_reason": null,
+    "audit_trail": [],
+    "processed_at": "2026-07-01T13:20:02Z"
+  },
+  {
+    "claim_id": "CLM-2024-013",
+    "decision": "Manual Review",
+    "approved_amount": 54000.0,
+    "rejected_amount": 0.0,
+    "deductions": [],
+    "missing_documents": [],
+    "policy_references": [
+      "APPR-POL-002"
+    ],
+    "confidence": 0.9,
+    "reasoning": "The claim amounts are within per-diem limits, however, the total amount of INR 54000 exceeds the auto-approval threshold for your L2 grade and requires escalation.",
+    "manual_review_reason": "Total amount exceeds L2 auto-approve threshold (25000), requires L3 Manager approval.",
+    "audit_trail": [],
+    "processed_at": "2026-07-01T13:20:03Z"
+  },
+  {
+    "claim_id": "CLM-2024-014",
+    "decision": "Rejected",
+    "approved_amount": 0.0,
+    "rejected_amount": 18500.0,
+    "deductions": [],
+    "missing_documents": [],
+    "policy_references": [],
+    "confidence": 1.0,
+    "reasoning": "Duplicate claim detected \u2014 this claim ID has already been processed",
+    "manual_review_reason": null,
+    "audit_trail": [
+      {
+        "step": 0,
+        "tool_name": "policy_retrieval_node",
+        "input_summary": "Checking duplicate for CLM-2024-014",
+        "output_summary": "Duplicate detected",
+        "policy_rules_triggered": [
+          "SYSTEM"
+        ]
+      }
+    ],
+    "processed_at": "2026-07-01T13:20:04Z"
+  }
+]

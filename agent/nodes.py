@@ -27,7 +27,7 @@ def get_llm():
     provider = os.environ.get("LLM_PROVIDER", "").strip().lower()
     
     if provider == "groq" or (not os.environ.get("OPENAI_API_KEY") and os.environ.get("GROQ_API_KEY")):
-        return ChatGroq(model="mixtral-8x7b-32768", temperature=0)
+        return ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
     elif provider == "openai" or os.environ.get("OPENAI_API_KEY"):
         return ChatOpenAI(model="gpt-4o-mini", temperature=0)
     else:
