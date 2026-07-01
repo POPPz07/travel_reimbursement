@@ -84,26 +84,57 @@ app = build_graph()
 def run_claim(claim_dict: dict) -> dict:
     """
     Creates initial state from claim_dict, invokes app with that state,
-    and returns state["decision"].model_dump()
+    and returns state["decision"].model_dump().
+    
+    Implements graph-level provider fallback: if the primary LLM provider 
+    fails (e.g. rate limit), the entire graph is retried from scratch with 
+    the next available provider. This avoids cross-provider message format 
+    incompatibilities that occur during mid-conversation swaps.
     """
-    # Create initial state
-    initial_state = {
-        "claim": claim_dict,
-        "messages": [],
-        "tool_results": {}
-    }
+    from agent.nodes import get_available_providers, get_llm
+    import os
     
-    # Invoke app
-    final_state = app.invoke(initial_state)
+    providers = get_available_providers()
+    primary = os.environ.get("LLM_PROVIDER", "groq").strip().lower()
     
-    # Extract decision
-    decision = final_state.get("decision")
+    # Reorder so primary is first, then the rest
+    if primary in providers:
+        providers.remove(primary)
+        providers.insert(0, primary)
     
-    if decision and isinstance(decision, ReimbursementDecision):
-        return decision.model_dump()
-    elif decision and isinstance(decision, dict):
-        return decision
-    return {}
+    errors = []
+    for provider in providers:
+        try:
+            # Override the env var so get_llm() inside nodes picks up this provider
+            os.environ["LLM_PROVIDER"] = provider
+            
+            # Rebuild graph fresh for this provider
+            fresh_app = build_graph()
+            
+            initial_state = {
+                "claim": claim_dict,
+                "messages": [],
+                "tool_results": {}
+            }
+            
+            final_state = fresh_app.invoke(initial_state)
+            decision = final_state.get("decision")
+            
+            # Restore original provider
+            os.environ["LLM_PROVIDER"] = primary
+            
+            if decision and isinstance(decision, ReimbursementDecision):
+                return decision.model_dump()
+            elif decision and isinstance(decision, dict):
+                return decision
+            return {}
+        except Exception as e:
+            errors.append(f"{provider}: {str(e)[:200]}")
+            continue
+    
+    # Restore original provider
+    os.environ["LLM_PROVIDER"] = primary
+    raise Exception("ALL ENGINES FAILED:\\n" + "\\n".join(errors))
 
 if __name__ == "__main__":
     # Test with claim_a_approve.json

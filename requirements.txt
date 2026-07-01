@@ -1,6 +1,7 @@
 langchain>=0.3.0
 langchain-openai>=0.2.0
 langchain-groq>=0.2.0          # free tier fallback
+langchain-google-genai>=1.0.0  # gemini fallback
 langgraph>=0.2.0
 pydantic>=2.0.0
 fastapi>=0.115.0               # for api.py bonus
@@ -8,3 +9,5 @@ uvicorn>=0.32.0               # for api.py bonus
 python-dotenv>=1.0.0
 rich>=13.0.0                   # for pretty CLI output
 pytest>=8.0.0                  # for optional test file
+streamlit
+pytest

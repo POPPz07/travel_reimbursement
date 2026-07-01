@@ -18,6 +18,12 @@ EVALUATION WORKFLOW:
 3. Call approval_threshold_check on the total amount
 4. Use policy_lookup if you need to verify specific policy rules
 
+When calculating meal deductions:
+ - Use per_diem_limit_check with the SUM of all meal receipts as claimed_amount
+ - excess_amount from the tool output IS the deduction amount \u2014 do not recalculate
+ - In the deduction reason, cite the employee's actual grade from the claim input, 
+   not a derived or assumed grade
+
 DECISION RULES:
 - APPROVED: All receipts complete, all amounts within limits, amount within auto-approve threshold
 - PARTIALLY APPROVED: Some receipts valid, some amounts exceed limits (approve the within-limit portion)
@@ -40,7 +46,7 @@ produce a final structured reimbursement decision.
 Calculate:
 - approved_amount: sum of all approved line items
 - rejected_amount: sum of all rejected/deducted amounts  
-- deductions: detailed breakdown per receipt
+- deductions: detailed breakdown per receipt. For each deduction, use the exact excess_amount returned by per_diem_limit_check as the deducted_amount. Do not re-derive this number.
 - missing_documents: list of receipt_ids with missing attachments
 - policy_references: all rule IDs cited during evaluation
 - confidence: 0.0-1.0 based on clarity of the case

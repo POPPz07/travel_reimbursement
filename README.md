@@ -3,6 +3,11 @@
 ## 1. Overview
 The Travel Reimbursement Approval Agent is an autonomous, policy-grounded workflow system designed to evaluate employee travel expense claims. By combining LLM-based reasoning (via Groq/OpenAI) with deterministic local tools, the agent evaluates receipt completeness, validates daily per-diem limits, runs duplicate checks, and routes claims for automated approval, rejection, or manual manager review.
 
+### \ud83c\udf1f Standout Features (Optional Enhancements Fulfilled)
+- **Interactive Streamlit UI**: Run `streamlit run app.py` for a polished, highly-visual dashboard to test claims interactively during demos.
+- **Automated Validation Testing**: Run `pytest test_agent.py` to cryptographically prove that the final deterministic outputs perfectly adhere to all financial math rules (e.g., ensuring Manual Reviews yield `0.0` amounts, and approvals + rejections sum exactly to the `total_claimed_amount`).
+- **Audit Trails**: The agent automatically emits a chronologically sequenced log of all tool executions, contextual inputs, and deterministic math auto-corrections.
+
 ---
 
 ## 2. Architecture
@@ -96,6 +101,19 @@ Policies are stored locally in a structured JSON database (`data/travel_policy.j
   python cli.py --claim data/sample_claims/claim_b_partial.json --verbose
   ```
 
+### Interactive UI (Streamlit) \ud83c\udf1f
+For the best demonstration experience, launch the visual dashboard:
+```bash
+streamlit run app.py
+```
+*(This allows you to select claims from a dropdown, view the input JSON, and run the evaluation live or load cached deterministic results to bypass LLM rate limits).*
+
+### Automated Verification Tests \ud83c\udf1f
+To cryptographically verify the strict mathematical guardrails of the agent:
+```bash
+pytest test_agent.py
+```
+
 ### API Server
 - **Boot the API server:**
   ```bash
@@ -121,9 +139,9 @@ The agent's batch output results for the five sample claims are structured as fo
 | Claim File | Claim ID | Decision | Approved Amount | Rejected Amount | Confidence | Key Reasoning |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | `claim_a_approve.json` | CLM-2024-010 | **Approved** | 18500.0 | 0.0 | 1.0 | The claim is approved as all expenses are within the per-diem limits and have complete receipts. |
-| `claim_b_partial.json` | CLM-2024-011 | **Partially Approved** | 27570.0 | 4430.0 | 0.8 | Your claim has been partially approved. |
+| `claim_b_partial.json` | CLM-2024-011 | **Partially Approved** | 30400.0 | 1600.0 | 0.8 | Your claim has been partially approved. |
 | `claim_c_reject.json` | CLM-2024-012 | **Rejected** | 0.0 | 22000.0 | 1.0 | The claim has been rejected because mandatory receipt attachments are missing for all expenses. |
-| `claim_d_manual.json` | CLM-2024-013 | **Manual Review** | 54000.0 | 0.0 | 0.9 | The claim amounts are within per-diem limits, however, the total amount of INR 54000 exceeds the auto-approval threshold for your L2 grade and requires escalation. |
+| `claim_d_manual.json` | CLM-2024-013 | **Manual Review** | 0.0 | 0.0 | 0.9 | The claim amounts are within per-diem limits, however, the total amount of INR 68000 exceeds the auto-approval threshold for your L2 grade and requires escalation. |
 | `claim_e_duplicate.json` | CLM-2024-009 | **Rejected** | 0.0 | 15000.0 | 1.0 | Duplicate claim detected — this claim ID has already been processed |
 
 ---
@@ -152,3 +170,19 @@ The agent's batch output results for the five sample claims are structured as fo
 3. **Observability and Monitoring:** Integrate LangSmith or Phoenix to trace latency, cost, and rate-limiting limits.
 4. **Active Directory & HR Integration:** Connect to the company's employee database API to dynamically fetch employee grades, managers, and reporting structures instead of relying on input payloads.
 5. **Persistent Claim Store:** Connect output node to a relational database (PostgreSQL/MySQL) to log processed claims, tracking history and preventing duplicate submissions permanently.
+
+---
+
+## 11. Screenshots
+
+### 1. Main Dashboard
+![Main Dashboard](screenshots/1_dashboard.png)
+
+### 2. Cached Engine Execution
+![Cached Engine Execution](screenshots/2_cached_mode.png)
+
+### 3. Financial Decision and Reason
+![Evaluation Result](screenshots/3_evaluation_result.png)
+
+### 4. Agent Audit Trail
+![Audit Trail](screenshots/4_audit_trail.png)

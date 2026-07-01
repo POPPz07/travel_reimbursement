@@ -22,3 +22,7 @@ outputs/*.json
 # Local files not to be pushed
 master_plan.md
 prerequisite.md
+
+# OS and Packages
+*.egg-info/
+.DS_Store

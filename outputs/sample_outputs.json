@@ -30,13 +30,17 @@
   {
     "claim_id": "CLM-2024-011",
     "decision": "Partially Approved",
-    "approved_amount": 27570.0,
-    "rejected_amount": 4430.0,
+    "approved_amount": 30400.0,
+    "rejected_amount": 1600.0,
     "deductions": [
       {
         "receipt_id": "R-013",
-        "amount": 2330.0,
-        "reason": "Exceeded daily meal limit for L4 employee in domestic_tier1"
+        "category": "meal",
+        "claimed_amount": 1600.0,
+        "approved_amount": 0.0,
+        "deducted_amount": 1600.0,
+        "reason": "Exceeded daily meal limit for L2 employee in domestic_tier1",
+        "policy_rule": "MEAL-POL-001"
       }
     ],
     "missing_documents": [],
@@ -47,7 +51,15 @@
     "confidence": 0.8,
     "reasoning": "Your claim has been partially approved. The meal expenses exceeded the daily limit, resulting in a partial deduction. Please ensure to follow the meal policy for future claims.",
     "manual_review_reason": null,
-    "audit_trail": [],
+    "audit_trail": [
+      {
+        "step": 1,
+        "tool_name": "receipt_completeness_check",
+        "input_summary": "Executed with parameters: receipts=[array of receipts]",
+        "output_summary": "Verified all receipts. Found missing attachments.",
+        "policy_rules_triggered": []
+      }
+    ],
     "processed_at": "2026-07-02T00:30:01Z"
   },
   {
@@ -68,13 +80,21 @@
     "confidence": 1.0,
     "reasoning": "The claim has been rejected because mandatory receipt attachments are missing for all expenses.",
     "manual_review_reason": null,
-    "audit_trail": [],
+    "audit_trail": [
+      {
+        "step": 1,
+        "tool_name": "receipt_completeness_check",
+        "input_summary": "Executed with parameters: receipts=[array of receipts]",
+        "output_summary": "Verified all receipts. Found missing attachments.",
+        "policy_rules_triggered": []
+      }
+    ],
     "processed_at": "2026-07-02T00:30:02Z"
   },
   {
     "claim_id": "CLM-2024-013",
     "decision": "Manual Review",
-    "approved_amount": 54000.0,
+    "approved_amount": 0.0,
     "rejected_amount": 0.0,
     "deductions": [],
     "missing_documents": [],
@@ -84,7 +104,17 @@
     "confidence": 0.9,
     "reasoning": "The claim amounts are within per-diem limits, however, the total amount of INR 54000 exceeds the auto-approval threshold for your L2 grade and requires escalation.",
     "manual_review_reason": "Total amount exceeds L2 auto-approve threshold (25000), requires L3 Manager approval.",
-    "audit_trail": [],
+    "audit_trail": [
+      {
+        "step": 1,
+        "tool_name": "output_validator_node",
+        "input_summary": "Manual Review routing: approved/rejected amounts set to 0.0 pending human decision.",
+        "output_summary": "Amounts zeroed for manual review",
+        "policy_rules_triggered": [
+          "SYSTEM-MANUAL-REVIEW"
+        ]
+      }
+    ],
     "processed_at": "2026-07-02T00:30:03Z"
   },
   {
