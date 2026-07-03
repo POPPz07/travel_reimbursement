@@ -8,6 +8,4 @@ fastapi>=0.115.0               # for api.py bonus
 uvicorn>=0.32.0               # for api.py bonus
 python-dotenv>=1.0.0
 rich>=13.0.0                   # for pretty CLI output
-pytest>=8.0.0                  # for optional test file
 streamlit
-pytest
